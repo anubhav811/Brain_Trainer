@@ -8,125 +8,157 @@
 
     <Button
         android:id="@+id/goButton"
-        android:layout_width="203dp"
-        android:layout_height="169dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginRight="105dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:onClick="start"
         android:padding="25dp"
         android:text="GO!"
         android:textColor="#000000"
         android:textSize="80dp"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="58dp">
 
         <TextView
             android:id="@+id/timerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_alignStart="@+id/gridLayout"
+            android:layout_alignLeft="@+id/gridLayout"
             android:background="#C84343"
             android:gravity="center"
             android:text="30s"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toStartOf="@+id/playAgainButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/gridLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.487" />
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="playAgain"
+            android:text="Play Again "
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:layout_constraintVertical_bias="0.419" />
 
         <TextView
-            android:id="@+id/sumTextView"
+            android:id="@+id/resultTextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="165dp"
-            android:layout_marginLeft="165dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="37dp"
-            android:layout_marginRight="37dp"
-            android:background="#0003A9F4"
-            android:text="15 + 42"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/playAgainButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
         <TextView
             android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="320dp"
-            android:layout_marginLeft="320dp"
-            android:layout_marginTop="84dp"
+            android:layout_alignEnd="@+id/gridLayout"
+            android:layout_alignRight="@+id/gridLayout"
             android:background="#A2C875"
             android:text="0/0"
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toEndOf="@+id/gridLayout"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/resultTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="215dp"
-            android:layout_marginLeft="215dp"
-            android:layout_marginTop="575dp"
+            android:id="@+id/sumTextView"
+            android:layout_width="108dp"
+            android:layout_height="46dp"
+            android:layout_toStartOf="@+id/scoreTextView"
+            android:layout_toLeftOf="@+id/scoreTextView"
+            android:layout_toEndOf="@+id/timerTextView"
+            android:layout_toRightOf="@+id/timerTextView"
+            android:background="#0003A9F4"
+            android:text="15+42"
             android:textColor="#000000"
-            android:textSize="50sp" />
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toStartOf="@+id/scoreTextView"
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintStart_toEndOf="@+id/timerTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.502" />
 
         <GridLayout
             android:id="@+id/gridLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="318dp"
+            android:layout_height="174dp"
             android:layout_centerInParent="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
+            android:layout_marginBottom="200dp"
             android:columnCount="2"
             android:rowCount="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
             <Button
                 android:id="@+id/button0"
                 android:layout_width="158dp"
-                android:layout_height="111dp"
+                android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:onClick="chooseAnswer"
+                android:tag="0"
                 android:text="3"
                 android:textColor="#000000"
-                android:textSize="70sp"
+                android:textSize="50sp"
                 app:backgroundTint="#EC8031" />
 
             <Button
                 android:id="@+id/button1"
                 android:layout_width="158dp"
-                android:layout_height="111dp"
+                android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_column="1"
                 android:onClick="chooseAnswer"
+                android:tag="1"
                 android:text="3"
                 android:textColor="#000000"
-                android:textSize="70sp"
+                android:textSize="50sp"
                 app:backgroundTint="#B659CD" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="158dp"
-                android:layout_height="111dp"
+                android:layout_height="wrap_content"
                 android:layout_row="1"
                 android:layout_column="0"
                 android:onClick="chooseAnswer"
+                android:tag="2"
                 android:text="3"
                 android:textColor="#000000"
-                android:textSize="70sp"
+                android:textSize="50sp"
                 app:backgroundTint="#CDDC39" />
 
             <Button
@@ -136,23 +168,14 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:onClick="chooseAnswer"
+                android:tag="3"
                 android:text="3"
                 android:textColor="#000000"
-                android:textSize="70sp"
+                android:textSize="50sp"
                 app:backgroundTint="#009688" />
 
         </GridLayout>
 
-        <Button
-            android:id="@+id/playAgainButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="700dp"
-            android:layout_marginBottom="20dp"
-            android:text="Play Again "
-            android:visibility="invisible" />
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

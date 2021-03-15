@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
     Button playAgainButton;
-    RelativeLayout gameLayout;
+    ConstraintLayout gameLayout;
 
 
 
@@ -86,9 +86,11 @@ public class MainActivity extends AppCompatActivity {
         score =0;
         numberOfQuestions=0;
         newQuestion();
+        resultTextView.setText("");
         timerTextView.setText("30 s");
+        gameLayout.setVisibility(View.VISIBLE);
         playAgainButton.setVisibility(View.INVISIBLE);
-        new CountDownTimer(30100,1000){
+        new CountDownTimer(30200,1000){
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -97,8 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                resultTextView.setText("         DONE !!");
+                resultTextView.setText("Game Over");
                 playAgainButton.setVisibility(View.VISIBLE);
+                gameLayout.setVisibility(View.VISIBLE);
+
 
             }
         }.start();
